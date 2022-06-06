@@ -1,8 +1,8 @@
-import { addPet } from "../repository/petrepository";
+import { addPet } from "../repository/petrepository.js";
 import { Router } from "express";
-const server = Router;
+const server = Router();
 
-server.post('./pets/adicionar', async (req, resp) => {
+server.post('/pets/adicionar', async (req, resp) => {
     try{
         const novoPet  = req.body
         const petAcionado = await addPet(novoPet);
@@ -12,5 +12,6 @@ server.post('./pets/adicionar', async (req, resp) => {
             erro: err.mensage
         })
     }
-    }
-})
+    })
+
+export default server;
